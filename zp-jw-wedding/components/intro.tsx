@@ -7,7 +7,7 @@ const Intro = () => {
         ZP. & JW.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        I do.
+        finding joy.
       </h4>
     </section>
   )

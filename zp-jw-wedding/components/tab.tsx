@@ -6,7 +6,7 @@ type Props = {
   preview?: boolean
 }
 
-const Alert = ({ preview }: Props) => {
+const Tab = ({ preview }: Props) => {
   return (
     <div
       className={cn('border-b', {
@@ -29,12 +29,11 @@ const Alert = ({ preview }: Props) => {
             </>
           ) : (
             <>
-              The source code for this blog is{' '}
               <a
-                href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
+                href={``}
                 className="underline hover:text-blue-600 duration-200 transition-colors"
               >
-                available on GitHub
+                Leave us some comments
               </a>
               .
             </>
@@ -45,4 +44,4 @@ const Alert = ({ preview }: Props) => {
   )
 }
 
-export default Alert
+export default Tab
