@@ -1,10 +1,10 @@
 ---
 title: 'Celebrate with us'
 excerpt: 'Welcome to our wedding website where we are thrilled to share our joy and excitement with all of our loved ones as we prepare for the biggest day of our lives.'
-coverImage: '/assets/blog/dynamic-routing/cover.jpg'
-date: '2022-05-20'
+coverImage: '/assets/blog/header/cover.jpg'
+date: '2023-09-06'
 ogImage:
-  url: '/assets/blog/dynamic-routing/cover.jpg'
+  url: '/assets/blog/header/cover.jpg'
 ---
 
 ## Welcome to our wedding website,
