@@ -3,5 +3,53 @@
 @tailwind utilities;
 
 h1 {
-	font-style: SF Mono;
+    font-style: SF Mono;
+}
+
+h2 {
+    padding-top: 100px;
+}
+
+.contact-form {
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 100px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form textarea,
+.contact-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Add border to all input and textarea fields */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    background-color: #fefefe;
+    text-align: center
+}
+
+.contact-form button[type="submit"] {
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    /* Add border to all input and textarea fields */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: #ccc;
 }

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
-//import contactFormStyles from './contactform.css'
 
 function ContactForm() {
     const [state, handleSubmit] = useForm("xgebajga");
@@ -8,7 +7,7 @@ function ContactForm() {
         return <p>Thanks for submitting!</p>;
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='contact-form' onSubmit={handleSubmit}>
         <label htmlFor="email">
           Email Address
         </label>
@@ -35,6 +34,7 @@ function ContactForm() {
           Submit
         </button>
       </form>
+
     );
   }
   
