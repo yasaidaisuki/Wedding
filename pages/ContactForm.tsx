@@ -8,8 +8,9 @@ function ContactForm() {
     }
     return (
         <form className='contact-form' onSubmit={handleSubmit}>
+
         <label htmlFor="email">
-          Email Address
+          Email
         </label>
         <input
           id="email"
@@ -21,6 +22,40 @@ function ContactForm() {
           field="email"
           errors={state.errors}
         />
+
+        <label htmlFor="name">
+          Full Name
+        </label>
+        <input
+          id="name"
+          type="text" 
+          name="name"
+        />
+
+        <div className='contact-form-dropdowns'>
+            <label htmlFor="attending">
+              Are you joining us?
+            </label>
+            <select name="attending" id="attending" required={true}>
+                <option value="" selected={true} disabled={false}>Select</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label htmlFor="plus">
+              And how with how many guests?
+            </label>
+            <select name="plus" id="plus" required={false}>
+                <option value="0" selected={true}>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        
+        <label htmlFor="message">
+          Leave us a message!
+        </label>
         <textarea
           id="message"
           name="message"

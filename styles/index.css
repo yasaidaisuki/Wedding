@@ -14,17 +14,20 @@ h2 {
     background-color: #fefefe;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 100px;
+    padding: 50px;
     max-width: 500px;
     margin: 0 auto;
     text-align: center;
+    max-width: 888px;
 }
 
 .contact-form label {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 10px;
+    padding: 20px;
 }
+
 
 .contact-form input[type="text"],
 .contact-form textarea,
@@ -52,4 +55,23 @@ h2 {
 
 .contact-form button[type="submit"]:hover {
     background-color: #ccc;
+}
+
+
+.contact-form select {
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    /* Add border to all input and textarea fields */
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
+.contact-form-dropdowns {
+    display: flex;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    padding: 20px;
 }
