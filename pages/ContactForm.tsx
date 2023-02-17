@@ -24,7 +24,7 @@ function ContactForm() {
         />
 
         <label htmlFor="name">
-          Full Name
+          Your Full Name
         </label>
         <input
           id="name"
@@ -41,7 +41,9 @@ function ContactForm() {
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </select>
+        </div>
 
+        <div className='contact-form-dropdowns'>
             <label htmlFor="plus">
               And how with how many guests?
             </label>
@@ -54,7 +56,7 @@ function ContactForm() {
         </div>
         
         <label htmlFor="message">
-          Leave us a message!
+          Please leave us a message!
         </label>
         <textarea
           id="message"
@@ -66,7 +68,7 @@ function ContactForm() {
           errors={state.errors}
         />
         <button type="submit" disabled={state.submitting}>
-          Submit
+          Send now
         </button>
       </form>
 

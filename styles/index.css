@@ -15,10 +15,9 @@ h2 {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     padding: 50px;
-    max-width: 500px;
     margin: 0 auto;
     text-align: center;
-    max-width: 888px;
+    max-width: 1000px;
 }
 
 .contact-form label {
@@ -34,19 +33,29 @@ h2 {
 .contact-form input[type="email"] {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    /* Add border to all input and textarea fields */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     margin-bottom: 20px;
     font-size: 1.2rem;
     background-color: #fefefe;
-    text-align: center
 }
+
+
+.contact-form input[id="email"],
+.contact-form input[id="name"] {
+    max-width: 300px;
+}
+
+.contact-form input[type="text"]:hover,
+.contact-form textarea:hover,
+.contact-form input[type="email"]:hover {
+    background-color: #f1f1f1;
+}
+
 
 .contact-form button[type="submit"] {
     background-color: #fefefe;
-    border: 1px solid #ccc;
-    /* Add border to all input and textarea fields */
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -54,24 +63,27 @@ h2 {
 }
 
 .contact-form button[type="submit"]:hover {
-    background-color: #ccc;
+    background-color: #f1f1f1;
 }
 
 
 .contact-form select {
     background-color: #fefefe;
-    border: 1px solid #ccc;
-    /* Add border to all input and textarea fields */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1.2rem;
     cursor: pointer;
+    text-align: center;
+    width: 200px;
+    height: 50px;
 }
 
 
-.contact-form-dropdowns {
-    display: flex;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    padding: 20px;
+@media (min-width: 800px) {
+    .contact-form-dropdowns {
+        margin-bottom: 10px;
+        padding: 20px;
+        align-items: center;
+    }
 }
