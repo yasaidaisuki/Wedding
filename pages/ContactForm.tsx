@@ -2,86 +2,88 @@ import React, { useState } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 function ContactForm() {
-    const [state, handleSubmit] = useForm("xgebajga");
-    const [attending, setAttending] = useState("");
-    const [plus, setPlus] = useState("");
-    const hasPlusOne = false;
+	const [state, handleSubmit] = useForm('xgebajga');
+	const [attending, setAttending] = useState('');
+	const [plus, setPlus] = useState('');
+	const hasPlusOne = false;
 
-    if (state.succeeded) {
-        return <div className='contact-form'><h1>Thank you!</h1></div>;
-    }
+	if (state.succeeded) {
+		return (
+			<div className="contact-form">
+				<h1>Thank you!</h1>
+			</div>
+		);
+	}
 
-    return (
-        <form className='contact-form' onSubmit={handleSubmit}>
+	return (
+		<form className="contact-form" onSubmit={handleSubmit}>
+			<div className="contact-form-pair">
+				<label htmlFor="name">Your full name:</label>
+				<input id="name" type="text" name="name" />
+				<ValidationError
+					prefix="Message"
+					field="message"
+					errors={state.errors}
+				/>
+			</div>
 
-        <div className='contact-form-pair'>
-            <label htmlFor="name">
-            Your full name:
-            </label>
-            <input
-            id="name"
-            type="text" 
-            name="name"
-            />
-        </div>
+			<div className="contact-form-pair">
+				<label htmlFor="attending">Are you joining us?</label>
+				<div>
+					<input
+						type="radio"
+						value="Yes"
+						name="attending"
+						onClick={() => setAttending('Yes')}
+					/>
+					Yes
+					<input
+						type="radio"
+						value="No"
+						name="attending"
+						onClick={() => setAttending('No')}
+					/>
+					No
+				</div>
+			</div>
 
-        <div className='contact-form-pair'>
-            <label htmlFor="attending">
-              Are you joining us?
-            </label>
-            <div>
-                <input type="radio" value="Yes" name="attending" onClick={() => setAttending("Yes")}/>Yes
-                <input type="radio" value="No" name="attending"  onClick={() => setAttending("No")}/>No
-            </div>
-        </div>
+			{attending === 'Yes' && (
+				<div className="contact-form-pair">
+					<label htmlFor="plus">Do you have another guest with you?</label>
+					<div>
+						<input
+							type="radio"
+							value="Yes"
+							name="plus"
+							onClick={() => setPlus('Yes')}
+						/>
+						Yes
+						<input
+							type="radio"
+							value="No"
+							name="plus"
+							onClick={() => setPlus('No')}
+						/>
+						No
+					</div>
+				</div>
+			)}
 
-        {
-            attending === "Yes" &&
-            <div className='contact-form-pair'>
-                <label htmlFor="plus">
-                  Do you have another guest with you?
-                </label>
-                <div>
-                    <input type="radio" value="Yes" name="plus" onClick={() => setPlus("Yes")}/>Yes
-                    <input type="radio" value="No" name="plus" onClick={() => setPlus("No")}/>No
-                </div>
-            </div>
-        }
+			{plus === 'Yes' && attending === 'Yes' && (
+				<div className="contact-form-pair">
+					<label htmlFor="nameguestone">Full name of your plus one:</label>
+					<input id="name" type="text" name="name" />
+				</div>
+			)}
 
-        {
-        plus === "Yes" &&
-        attending === "Yes" &&
-            <div className='contact-form-pair'>
-                <label htmlFor="nameguestone">
-                    Full name of your plus one:
-                </label>
-                <input
-                id="name"
-                type="text" 
-                name="name"
-                />
-            </div>
-        }
-        
-        
-        <label htmlFor="message">
-          Please leave us a message!
-        </label>
-        <textarea
-          id="message"
-          name="message"
-        />
-        <ValidationError 
-          prefix="Message" 
-          field="message"
-          errors={state.errors}
-        />
-        <button type="submit" disabled={state.submitting}>
-          Send now
-        </button>
-      </form>
+			<label htmlFor="message">Please leave us a message!</label>
+			<textarea id="message" name="message" />
+			<ValidationError prefix="Message" field="message" errors={state.errors} />
+			<button type="submit" disabled={state.submitting}>
+				Send now
+			</button>
+		</form>
+	);
+}
 
-    );
-  }
-  
-  export default ContactForm;
+export default ContactForm;
