@@ -19,18 +19,14 @@ function ContactForm() {
 		<form className="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-form-pair">
 				<label htmlFor="name">Your full name:</label>
-				<input id="name" type="text" name="name" />
-				<ValidationError
-					prefix="Message"
-					field="message"
-					errors={state.errors}
-				/>
+				<input id="name" type="text" name="name" required={true} />
 			</div>
 
 			<div className="contact-form-pair">
 				<label htmlFor="attending">Are you joining us?</label>
 				<div>
 					<input
+						required={true}
 						type="radio"
 						value="Yes"
 						name="attending"
@@ -38,6 +34,7 @@ function ContactForm() {
 					/>
 					Yes
 					<input
+						required={true}
 						type="radio"
 						value="No"
 						name="attending"
@@ -52,6 +49,7 @@ function ContactForm() {
 					<label htmlFor="plus">Do you have another guest with you?</label>
 					<div>
 						<input
+							required={true}
 							type="radio"
 							value="Yes"
 							name="plus"
@@ -59,6 +57,7 @@ function ContactForm() {
 						/>
 						Yes
 						<input
+							required={true}
 							type="radio"
 							value="No"
 							name="plus"
@@ -72,7 +71,7 @@ function ContactForm() {
 			{plus === 'Yes' && attending === 'Yes' && (
 				<div className="contact-form-pair">
 					<label htmlFor="nameguestone">Full name of your plus one:</label>
-					<input id="name" type="text" name="name" />
+					<input id="name" type="text" name="name" required={true} />
 				</div>
 			)}
 
