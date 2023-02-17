@@ -3,57 +3,66 @@ import { useForm, ValidationError } from '@formspree/react';
 
 function ContactForm() {
     const [state, handleSubmit] = useForm("xgebajga");
+    const [attending, setAttending] = useState("");
+    const [plus, setPlus] = useState("");
+    const hasPlusOne = false;
+
     if (state.succeeded) {
-        return <p>Thanks for submitting!</p>;
+        return <div className='contact-form'><h1>Thank you!</h1></div>;
     }
+
     return (
         <form className='contact-form' onSubmit={handleSubmit}>
 
-        <label htmlFor="email">
-          Email
-        </label>
-        <input
-          id="email"
-          type="email" 
-          name="email"
-        />
-        <ValidationError 
-          prefix="Email" 
-          field="email"
-          errors={state.errors}
-        />
+        <div className='contact-form-pair'>
+            <label htmlFor="name">
+            Your full name:
+            </label>
+            <input
+            id="name"
+            type="text" 
+            name="name"
+            />
+        </div>
 
-        <label htmlFor="name">
-          Your Full Name
-        </label>
-        <input
-          id="name"
-          type="text" 
-          name="name"
-        />
-
-        <div className='contact-form-dropdowns'>
+        <div className='contact-form-pair'>
             <label htmlFor="attending">
               Are you joining us?
             </label>
-            <select name="attending" id="attending" required={true}>
-                <option value="" selected={true} disabled={false}>Select</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select>
+            <div>
+                <input type="radio" value="Yes" name="attending" onClick={() => setAttending("Yes")}/>Yes
+                <input type="radio" value="No" name="attending"  onClick={() => setAttending("No")}/>No
+            </div>
         </div>
 
-        <div className='contact-form-dropdowns'>
-            <label htmlFor="plus">
-              And how with how many guests?
-            </label>
-            <select name="plus" id="plus" required={false}>
-                <option value="0" selected={true}>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </div>
+        {
+            attending === "Yes" &&
+            <div className='contact-form-pair'>
+                <label htmlFor="plus">
+                  Do you have another guest with you?
+                </label>
+                <div>
+                    <input type="radio" value="Yes" name="plus" onClick={() => setPlus("Yes")}/>Yes
+                    <input type="radio" value="No" name="plus" onClick={() => setPlus("No")}/>No
+                </div>
+            </div>
+        }
+
+        {
+        plus === "Yes" &&
+        attending === "Yes" &&
+            <div className='contact-form-pair'>
+                <label htmlFor="nameguestone">
+                    Full name of your plus one:
+                </label>
+                <input
+                id="name"
+                type="text" 
+                name="name"
+                />
+            </div>
+        }
+        
         
         <label htmlFor="message">
           Please leave us a message!
