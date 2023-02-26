@@ -1,3 +1,3 @@
-Welcome to my little playground
+Welcome to our little wedding website!
 
-Do `yarn dev` to run
+https://wedding-zypengg.vercel.app
