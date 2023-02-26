@@ -75,9 +75,13 @@ function ContactForm() {
 				</div>
 			)}
 
-			<label htmlFor="message">Please leave us a message!</label>
-			<textarea id="message" name="message" />
-			<ValidationError prefix="Message" field="message" errors={state.errors} />
+
+			<div className="contact-form-pair">
+				<label htmlFor="message">Please leave us a message!</label>
+				<textarea id="message" name="message" />
+				<ValidationError prefix="Message" field="message" errors={state.errors} />
+			</div>
+
 			<button type="submit" disabled={state.submitting}>
 				Send now
 			</button>
