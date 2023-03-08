@@ -1,10 +1,8 @@
-import { Text, Spacer, Container, Card } from '@nextui-org/react';
-import Box from './Box.js';
+import { Text, Spacer, Container, Card } from "@nextui-org/react";
+import Box from "./Box.js";
 
-import Welcome from './Welcome.js'
+import Welcome from "./Welcome.js";
 
-const Content = () => (
-	<></>
-);
+const Content = () => <></>;
 
 export default Content;
