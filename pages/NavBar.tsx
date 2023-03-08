@@ -32,36 +32,53 @@ export default function childrenHeader() {
                     hideIn="xs"
                     variant="highlight-solid"
                 >
-                    <Navbar.Link href="/">{collapseItems[0]}</Navbar.Link>
-                    <Navbar.Link href="/Location">
-                        {collapseItems[1]}
-                    </Navbar.Link>
-                    <Navbar.Link href="/RSVP">{collapseItems[2]}</Navbar.Link>
-                    <Navbar.Link href="FAQ">{collapseItems[3]}</Navbar.Link>
+                    <Navbar.Link href="/">Welcome</Navbar.Link>
+                    <Navbar.Link href="/Location">Location</Navbar.Link>
+                    <Navbar.Link href="/RSVP">RSVP</Navbar.Link>
+                    <Navbar.Link href="FAQ">FAQ</Navbar.Link>
                 </Navbar.Content>
 
                 <Navbar.Collapse>
-                    {collapseItems.map((item, index) => (
-                        <Navbar.CollapseItem
-                            key={item}
+                    <Navbar.CollapseItem key="Welcome">
+                        <Link
                             css={{
-                                color:
-                                    index === collapseItems.length - 1
-                                        ? "$error"
-                                        : "",
+                                minWidth: "100%",
                             }}
-                            isActive={index === 0}
+                            href="/"
                         >
-                            <Link
-                                css={{
-                                    minWidth: "100%",
-                                }}
-                                href="#"
-                            >
-                                {item}
-                            </Link>
-                        </Navbar.CollapseItem>
-                    ))}
+                            Welcome
+                        </Link>
+                    </Navbar.CollapseItem>
+                    <Navbar.CollapseItem key="Location">
+                        <Link
+                            css={{
+                                minWidth: "100%",
+                            }}
+                            href="/Location"
+                        >
+                            Location
+                        </Link>
+                    </Navbar.CollapseItem>
+                    <Navbar.CollapseItem key="RSVP">
+                        <Link
+                            css={{
+                                minWidth: "100%",
+                            }}
+                            href="/RSVP"
+                        >
+                            RSVP
+                        </Link>
+                    </Navbar.CollapseItem>
+                    <Navbar.CollapseItem key="FAQ">
+                        <Link
+                            css={{
+                                minWidth: "100%",
+                            }}
+                            href="/FAQ"
+                        >
+                            FAQ
+                        </Link>
+                    </Navbar.CollapseItem>
                 </Navbar.Collapse>
             </Navbar>
         </div>
