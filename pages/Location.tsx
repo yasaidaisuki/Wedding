@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { Container, Card, Text } from "@nextui-org/react";
 import Wrapper from "./wrapper";
 
@@ -27,7 +27,7 @@ const Location = ({ nonce }: Props) => {
     const onLoad = React.useCallback(function callback(map) {
         // This is just an example of getting and using the map instance!!! don't just blindly copy!
         const bounds = new window.google.maps.LatLngBounds(center);
-        map.fitBounds(bounds);
+        bounds.extend(center);
 
         setMap(map);
     }, []);
@@ -55,11 +55,16 @@ const Location = ({ nonce }: Props) => {
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
-                        zoom={9}
+                        zoom={18}
                         onLoad={onLoad}
                         onUnmount={onUnmount}
                     >
-                        {/* Child components, such as markers, info windows, etc. */}
+                        <Marker
+                            position={{
+                                lat: 43.79147120074889,
+                                lng: -79.52251629716517,
+                            }}
+                        />
                         <></>
                     </GoogleMap>
                 </Card>
