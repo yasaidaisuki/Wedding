@@ -4,13 +4,13 @@ import { Container, Card, Text } from "@nextui-org/react";
 import Wrapper from "./wrapper";
 
 const containerStyle = {
-    width: "400px",
-    height: "400px",
+    width: "auto",
+    height: "500px",
 };
 
 const center = {
-    lat: -3.745,
-    lng: -38.523,
+    lat: 43.7916270953937,
+    lng: -79.52203610337222,
 };
 
 type Props = { nonce: string };
@@ -51,11 +51,11 @@ const Location = ({ nonce }: Props) => {
                     <br />
                     7601 Jane St, Concord, ON L4K 1X2
                 </Text>
-                <Card css={{ $$cardColor: "$colors$primary" }}>
+                <Card>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
                         center={center}
-                        zoom={10}
+                        zoom={9}
                         onLoad={onLoad}
                         onUnmount={onUnmount}
                     >
