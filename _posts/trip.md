@@ -1,5 +1,5 @@
 ---
-title: 'The World is Our Oyster'
+title: 'Our Trips Across The Provinces'
 excerpt: ' A Recap of Our Favorite Trips as we Journey Through the World Together'
 coverImage: '/assets/blog/trip/emerald-lake.jpg'
 date: '2023-02-10'

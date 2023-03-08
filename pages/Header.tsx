@@ -40,7 +40,7 @@ export default function Header() {
 					<Navbar.Link isActive href="#">
 						{collapseItems[0]}
 					</Navbar.Link>
-					<Navbar.Link href="#">{collapseItems[1]}</Navbar.Link>
+					<Navbar.Link href="/Location">{collapseItems[1]}</Navbar.Link>
 					<Navbar.Link href="#">{collapseItems[2]}</Navbar.Link>
 					<Navbar.Link href="#">{collapseItems[3]}</Navbar.Link>
 					<Navbar.Link href="#">{collapseItems[4]}</Navbar.Link>
