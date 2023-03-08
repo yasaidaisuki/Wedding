@@ -1,9 +1,9 @@
 import { Navbar, Link, Avatar, Switch, useTheme } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
 export default function childrenHeader() {
     const { isDark, type } = useTheme();
-
-    const collapseItems = ["Welcome", "Location", "RSVP", "FAQ"];
+    const router = useRouter();
 
     return (
         <div>
@@ -30,12 +30,26 @@ export default function childrenHeader() {
                 <Navbar.Content
                     enableCursorHighlight
                     hideIn="xs"
-                    variant="highlight-solid"
+                    variant="underline"
                 >
-                    <Navbar.Link href="/">Welcome</Navbar.Link>
-                    <Navbar.Link href="/Location">Location</Navbar.Link>
-                    <Navbar.Link href="/RSVP">RSVP</Navbar.Link>
-                    <Navbar.Link href="FAQ">FAQ</Navbar.Link>
+                    <Navbar.Link isActive={router.asPath === "/"} href="/">
+                        Welcome
+                    </Navbar.Link>
+                    <Navbar.Link
+                        isActive={router.asPath === "/Location"}
+                        href="/Location"
+                    >
+                        Location
+                    </Navbar.Link>
+                    <Navbar.Link
+                        isActive={router.asPath === "/RSVP"}
+                        href="/RSVP"
+                    >
+                        RSVP
+                    </Navbar.Link>
+                    <Navbar.Link isActive={router.asPath === "/FAQ"} href="FAQ">
+                        FAQ
+                    </Navbar.Link>
                 </Navbar.Content>
 
                 <Navbar.Collapse>
