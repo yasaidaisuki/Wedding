@@ -11,29 +11,18 @@ import Post from "../interfaces/post";
 import Header from "./NavBar";
 
 type Props = {
-    allPosts: Post[];
+    children: React.ReactNode;
+    title: string;
 };
 
-export default function Index({ allPosts }: Props) {
-    const heroPost = allPosts[0];
-    const morePosts = allPosts.slice(1);
+export default function Wrapper({ title, children }: Props) {
     return (
         <>
             <Layout>
                 <Header />
                 <Container>
-                    <Intro title="Welcome" />
-                    {heroPost && (
-                        <HeroPost
-                            title={heroPost.title}
-                            coverImage={heroPost.coverImage}
-                            date={heroPost.date}
-                            author={heroPost.author}
-                            slug={heroPost.slug}
-                            excerpt={heroPost.excerpt}
-                        />
-                    )}
-                    {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+                    <Intro title={title} />
+                    {children}
                 </Container>
             </Layout>
         </>

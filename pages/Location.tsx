@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { Container, Card } from "@nextui-org/react";
-import Header from "./NavBar";
+import { Container, Card, Text } from "@nextui-org/react";
+import Wrapper from "./wrapper";
 
 const containerStyle = {
     width: "400px",
@@ -37,9 +37,20 @@ const Location = ({ nonce }: Props) => {
     }, []);
 
     return isLoaded ? (
-        <div>
-            <Header />
+        <Wrapper title="Location">
             <Container>
+                <Text
+                    h1
+                    size={30}
+                    css={{
+                        textGradient: "45deg, $blue600 -20%, $pink600 80%",
+                    }}
+                    weight="bold"
+                >
+                    PPradise Banquet & Convention Centre:
+                    <br />
+                    7601 Jane St, Concord, ON L4K 1X2
+                </Text>
                 <Card css={{ $$cardColor: "$colors$primary" }}>
                     <GoogleMap
                         mapContainerStyle={containerStyle}
@@ -53,7 +64,7 @@ const Location = ({ nonce }: Props) => {
                     </GoogleMap>
                 </Card>
             </Container>
-        </div>
+        </Wrapper>
     ) : (
         <></>
     );

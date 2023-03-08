@@ -1,6 +1,6 @@
 import { Navbar, Link, Avatar, Switch, useTheme } from "@nextui-org/react";
 
-export default function Header() {
+export default function childrenHeader() {
     const { isDark, type } = useTheme();
 
     const collapseItems = ["Welcome", "Location", "RSVP", "FAQ"];
@@ -23,7 +23,9 @@ export default function Header() {
                         },
                     }}
                 >
-                    <Avatar squared src="./wedding-logo.jpeg" bordered />
+                    <Link href="/">
+                        <Avatar squared src="./wedding-logo.jpeg" bordered />
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Content
                     enableCursorHighlight
@@ -34,7 +36,7 @@ export default function Header() {
                     <Navbar.Link href="/Location">
                         {collapseItems[1]}
                     </Navbar.Link>
-                    <Navbar.Link href="#">{collapseItems[2]}</Navbar.Link>
+                    <Navbar.Link href="/RSVP">{collapseItems[2]}</Navbar.Link>
                     <Navbar.Link href="#">{collapseItems[3]}</Navbar.Link>
                     <Navbar.Link href="#">{collapseItems[4]}</Navbar.Link>
                 </Navbar.Content>
