@@ -8,7 +8,7 @@ import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import Post from "../interfaces/post";
 
-import Header from "./Header";
+import Header from "./NavBar";
 
 type Props = {
     allPosts: Post[];

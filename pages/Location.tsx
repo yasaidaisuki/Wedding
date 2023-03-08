@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { Container, Card } from "@nextui-org/react";
-import Header from "./Header";
+import Header from "./NavBar";
 
 const containerStyle = {
     width: "400px",

@@ -1,5 +1,4 @@
 import { Navbar, Link, Avatar, Switch, useTheme } from "@nextui-org/react";
-import Layout from "./Layout.js";
 
 export default function Header() {
     const { isDark, type } = useTheme();
@@ -7,7 +6,7 @@ export default function Header() {
     const collapseItems = ["Welcome", "Location", "RSVP", "FAQ"];
 
     return (
-        <Layout>
+        <div>
             <Navbar
                 isBordered={isDark}
                 variant="sticky"
@@ -31,9 +30,7 @@ export default function Header() {
                     hideIn="xs"
                     variant="highlight-solid"
                 >
-                    <Navbar.Link isActive href="/">
-                        {collapseItems[0]}
-                    </Navbar.Link>
+                    <Navbar.Link href="/">{collapseItems[0]}</Navbar.Link>
                     <Navbar.Link href="/Location">
                         {collapseItems[1]}
                     </Navbar.Link>
@@ -66,6 +63,6 @@ export default function Header() {
                     ))}
                 </Navbar.Collapse>
             </Navbar>
-        </Layout>
+        </div>
     );
 }
