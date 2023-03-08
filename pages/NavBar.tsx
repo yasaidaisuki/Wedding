@@ -37,8 +37,7 @@ export default function childrenHeader() {
                         {collapseItems[1]}
                     </Navbar.Link>
                     <Navbar.Link href="/RSVP">{collapseItems[2]}</Navbar.Link>
-                    <Navbar.Link href="#">{collapseItems[3]}</Navbar.Link>
-                    <Navbar.Link href="#">{collapseItems[4]}</Navbar.Link>
+                    <Navbar.Link href="FAQ">{collapseItems[3]}</Navbar.Link>
                 </Navbar.Content>
 
                 <Navbar.Collapse>

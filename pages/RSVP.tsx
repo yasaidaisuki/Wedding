@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import {
-    Card,
     Container,
     Input,
     Radio,
@@ -17,10 +16,6 @@ function ContactForm() {
     const [state, handleSubmit] = useForm("mzbqvpkn");
     const [attending, setAttending] = useState("");
     const [plus, setPlus] = useState("");
-    const [submitted, setSubmitted] = useState(false);
-    const hasPlusOne = false;
-
-    const rsvpForm = {};
 
     const handleConfetti = () => {
         confetti();
