@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { Container, Card } from "@nextui-org/react";
+import Header from "./Header";
 
 const containerStyle = {
   width: "400px",
@@ -35,16 +37,23 @@ const Location = ({ nonce }: Props) => {
   }, []);
 
   return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={10}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-    >
-      {/* Child components, such as markers, info windows, etc. */}
-      <></>
-    </GoogleMap>
+    <div>
+      <Header />
+      <Container>
+        <Card css={{ $$cardColor: "$colors$primary" }}>
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={10}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
+          >
+            {/* Child components, such as markers, info windows, etc. */}
+            <></>
+          </GoogleMap>
+        </Card>
+      </Container>
+    </div>
   ) : (
     <></>
   );

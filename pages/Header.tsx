@@ -37,7 +37,7 @@ export default function Header() {
 					hideIn="xs"
 					variant="highlight-solid"
 				>
-					<Navbar.Link isActive href="#">
+					<Navbar.Link isActive href="/">
 						{collapseItems[0]}
 					</Navbar.Link>
 					<Navbar.Link href="/Location">{collapseItems[1]}</Navbar.Link>
