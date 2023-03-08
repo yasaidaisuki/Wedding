@@ -7,7 +7,9 @@ import { getAllPosts } from '../lib/api';
 import Head from 'next/head';
 import { CMS_NAME } from '../lib/constants';
 import Post from '../interfaces/post';
-import ContactForm from './ContactForm';
+
+import Header from './Header';
+
 
 type Props = {
 	allPosts: Post[];
@@ -19,9 +21,7 @@ export default function Index({ allPosts }: Props) {
 	return (
 		<>
 			<Layout>
-				<Head>
-					<title>{`ZP & JW`}</title>
-				</Head>
+				<Header />
 				<Container>
 					<Intro />
 					{heroPost && (
@@ -34,7 +34,6 @@ export default function Index({ allPosts }: Props) {
 							excerpt={heroPost.excerpt}
 						/>
 					)}
-					<ContactForm></ContactForm>
 					{morePosts.length > 0 && <MoreStories posts={morePosts} />}
 				</Container>
 			</Layout>
