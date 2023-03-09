@@ -24,7 +24,11 @@ export default function childrenHeader() {
                     }}
                 >
                     <Link href="/">
-                        <Avatar squared src="./wedding-logo.jpeg" bordered />
+                        <Avatar
+                            squared
+                            src="https://firebasestorage.googleapis.com/v0/b/weddingwebsite-2d923.appspot.com/o/logo%2Fzp-jw-logo-grey.PNG?alt=media&token=a60097d8-a70e-42b3-9444-be50f281ad34"
+                            bordered
+                        />
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Content
