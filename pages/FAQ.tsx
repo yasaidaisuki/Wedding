@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Text } from "@nextui-org/react";
-import Wrapper from "./wrapper";
+import Wrapper from "../components/wrapper";
 
 function ContactForm() {
     return (
