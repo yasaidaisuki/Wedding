@@ -10,7 +10,7 @@ import {
     Spacer,
 } from "@nextui-org/react";
 import confetti from "canvas-confetti";
-import Wrapper from "../components/wrapper";
+import Wrapper from "../components/page-wrapper";
 
 function ContactForm() {
     const [state, handleSubmit] = useForm("mzbqvpkn");

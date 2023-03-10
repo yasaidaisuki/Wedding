@@ -1,24 +1,13 @@
-import Container from "../components/container";
-import MoreStories from "../components/more-stories";
-import HeroPost from "../components/hero-post";
-import Intro from "../components/intro";
-import Layout from "../components/layout";
-import { getAllPosts } from "../lib/api";
-import Head from "next/head";
-import { CMS_NAME } from "../lib/constants";
 import Post from "../interfaces/post";
-import { Image } from "@nextui-org/react";
+import { Image, Spacer, Text } from "@nextui-org/react";
 
-import Header from "../components/NavBar";
-import Wrapper from "../components/wrapper";
+import Wrapper from "../components/page-wrapper";
 
 type Props = {
     allPosts: Post[];
 };
 
 export default function Index({ allPosts }: Props) {
-    const heroPost = allPosts[0];
-    const morePosts = allPosts.slice(1);
     return (
         <Wrapper title="Welcome">
             <Image
@@ -28,21 +17,40 @@ export default function Index({ allPosts }: Props) {
                 width={1300}
                 height={630}
             />
+            <Text
+                h1
+                size={30}
+                css={{
+                    textGradient: "45deg, $blue600 -20%, $pink600 50%",
+                }}
+                weight="bold"
+            >
+                Celebrate with us
+            </Text>
+            <Spacer />
+            <Text>
+                This website is a celebration,
+                <br />
+                Of the love we share and the dedication,
+                <br />
+                <br />
+                To a future bright and full of cheer,
+                <br />
+                With each other, forever near.
+                <br />
+                <br />
+                <br /> So welcome, dear friends and family,
+                <br />
+                To a glimpse of our love story,
+                <br />
+                With photos, memories, and more to see,
+                <br />
+                <br />
+                As we embark on our new journey.
+            </Text>
+            <Spacer y={2} />
+            <text>Zoe & Jacob</text>
+            <Spacer y={3} />
         </Wrapper>
     );
 }
-
-export const getStaticProps = async () => {
-    const allPosts = getAllPosts([
-        "title",
-        "date",
-        "slug",
-        "author",
-        "coverImage",
-        "excerpt",
-    ]);
-
-    return {
-        props: { allPosts },
-    };
-};

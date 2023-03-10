@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { Container, Card, Text } from "@nextui-org/react";
-import Wrapper from "../components/wrapper";
+import Wrapper from "../components/page-wrapper";
 
 const containerStyle = {
     width: "auto",
