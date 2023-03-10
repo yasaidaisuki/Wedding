@@ -5,6 +5,7 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getStorage, ref } from "firebase/storage";
+import { getFirestore, doc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -20,9 +21,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 const storage = getStorage(app);
-const imagesRef = ref(storage, "images");
+// Create a reference under which you want to list
+const imageRef = ref(storage, "image");
 
-export { storage };
+export { storage, imageRef };
