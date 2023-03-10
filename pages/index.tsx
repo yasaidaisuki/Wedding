@@ -1,11 +1,6 @@
-import Post from "../interfaces/post";
 import { Image, Spacer, Text } from "@nextui-org/react";
 
 import Wrapper from "../components/page-wrapper";
-
-type Props = {
-    allPosts: Post[];
-};
 
 export default function Index({ allPosts }: Props) {
     return (

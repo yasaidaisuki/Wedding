@@ -43,6 +43,12 @@ const Header = () => {
                         Welcome
                     </Navbar.Link>
                     <Navbar.Link
+                        isActive={router.asPath === "/Album"}
+                        href="/Album"
+                    >
+                        Album
+                    </Navbar.Link>
+                    <Navbar.Link
                         isActive={router.asPath === "/Location"}
                         href="/Location"
                     >
@@ -68,6 +74,16 @@ const Header = () => {
                             href="/"
                         >
                             Welcome
+                        </Link>
+                    </Navbar.CollapseItem>
+                    <Navbar.CollapseItem key="Album">
+                        <Link
+                            css={{
+                                minWidth: "100%",
+                            }}
+                            href="/Album"
+                        >
+                            Album
                         </Link>
                     </Navbar.CollapseItem>
                     <Navbar.CollapseItem key="Location">
