@@ -2,7 +2,7 @@ import { Image, Spacer, Text } from "@nextui-org/react";
 
 import Wrapper from "../components/page-wrapper";
 
-export default function Index({ allPosts }: Props) {
+export default function Index() {
     return (
         <Wrapper title="Welcome">
             <Image
