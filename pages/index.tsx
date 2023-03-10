@@ -14,9 +14,8 @@ export default function Index({ allPosts }: Props) {
                 src="https://firebasestorage.googleapis.com/v0/b/weddingwebsite-2d923.appspot.com/o/cover%2Fcover.jpg?alt=media&token=61f6085a-4cf2-4605-be4a-6bfe03b23976"
                 alt={`Cover Image`}
                 className="cover-image"
-                width={1300}
-                height={630}
             />
+            <Spacer y={2} />
             <Text
                 h1
                 size={30}
