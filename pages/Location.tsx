@@ -47,7 +47,7 @@ const Location = ({ nonce }: Props) => {
                     }}
                     weight="bold"
                 >
-                    PPradise Banquet & Convention Centre:
+                    Pradise Banquet & Convention Centre:
                     <br />
                     7601 Jane St, Concord, ON L4K 1X2
                 </Text>

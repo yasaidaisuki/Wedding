@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Grid, Pagination, Loading } from "@nextui-org/react";
+import { Card, Grid, Pagination, Loading, Text } from "@nextui-org/react";
 import Wrapper from "../components/page-wrapper";
 import { listAll, getDownloadURL } from "firebase/storage";
 import { imageRef } from "../firebase/config";
@@ -70,6 +70,24 @@ const Album = () => {
     } else {
         return (
             <Wrapper title="Album">
+                <Text
+                    h1
+                    size={30}
+                    css={{
+                        textGradient: "45deg, $blue600 -20%, $pink600 80%",
+                    }}
+                    weight="bold"
+                >
+                    Our Journeys
+                </Text>
+                <Text>
+                    We've had the pleasure of exploring all of the beautiful
+                    Canadian provinces and more!
+                    <br />
+                    <br />
+                    And now, we're excited to share some of the most
+                    unforgettable highlights from our travels with you.
+                </Text>
                 <Grid.Container gap={2} justify="center">
                     <Grid.Container gap={2} justify="center">
                         {imageCards(pageNum)}
