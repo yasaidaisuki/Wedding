@@ -34,9 +34,6 @@ const Album = () => {
             });
     }, []);
 
-    console.log("imageUrl size: ");
-    console.log(imageUrls.length);
-
     const imageCards = (page) => {
         const chunkStart = (page - 1) * PAGE_CHUNK_SIZE;
         const chunkEnd = (page - 1) * PAGE_CHUNK_SIZE + PAGE_CHUNK_SIZE;
