@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, Col, Grid, Text, Pagination, Image } from "@nextui-org/react";
+import { Card, Grid, Pagination, Loading } from "@nextui-org/react";
 import Wrapper from "../components/page-wrapper";
 import { listAll, getDownloadURL } from "firebase/storage";
 import { imageRef } from "../firebase/config";
 
 const Album = () => {
     const PAGE_CHUNK_SIZE = 10;
+    const TOTAL_PAGE = 6;
+    const DELAY_TIME = 1000;
+
+    const [loading, setLoading] = useState(true);
     const [pageNum, setPageNum] = useState(1);
     const [imageUrls, setImageUrls] = useState([]);
 
@@ -18,17 +22,25 @@ const Album = () => {
                         setImageUrls((prev) => [...prev, url]);
                     });
                 });
+                setLoading(false);
+                const myPromise = new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve("foo");
+                    }, 300);
+                });
             })
             .catch((error) => {
                 // Uh-oh, an error occurred!
             });
     }, []);
 
+    console.log("imageUrl size: ");
+    console.log(imageUrls.length);
+
     const imageCards = (page) => {
-        const imageChunk = imageUrls.slice(
-            page - 1,
-            (page - 1) * PAGE_CHUNK_SIZE + PAGE_CHUNK_SIZE
-        );
+        const chunkStart = (page - 1) * PAGE_CHUNK_SIZE;
+        const chunkEnd = (page - 1) * PAGE_CHUNK_SIZE + PAGE_CHUNK_SIZE;
+        const imageChunk = imageUrls.slice(chunkStart, chunkEnd);
         return imageChunk.map((photo) => {
             return (
                 <Grid xs={6} md={3}>
@@ -46,21 +58,38 @@ const Album = () => {
         });
     };
 
-    return (
-        <Wrapper title="Album">
-            <Grid.Container gap={2} justify="center">
+    if (loading) {
+        const resetTimeout = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("timeout");
+            }, 300);
+        });
+        resetTimeout.then(() => setLoading(false));
+        return (
+            <Wrapper title="Album">
+                <Loading />
+            </Wrapper>
+        );
+    } else {
+        return (
+            <Wrapper title="Album">
                 <Grid.Container gap={2} justify="center">
-                    {imageCards(pageNum)}
+                    <Grid.Container gap={2} justify="center">
+                        {imageCards(pageNum)}
+                    </Grid.Container>
                 </Grid.Container>
-            </Grid.Container>
-            <Pagination
-                onlyDots
-                total={imageUrls.length / PAGE_CHUNK_SIZE}
-                initialPage={pageNum}
-                onChange={(page) => setPageNum(page)}
-            />
-        </Wrapper>
-    );
+                <Pagination
+                    onlyDots
+                    total={TOTAL_PAGE}
+                    initialPage={pageNum}
+                    onChange={(page) => {
+                        setLoading(true);
+                        setPageNum(page);
+                    }}
+                />
+            </Wrapper>
+        );
+    }
 };
 
 export default Album;
