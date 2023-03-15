@@ -17,6 +17,7 @@ import {
     addToGuestList,
 } from "../firebase/useFireStore";
 import { textGradientCSS } from "../styles/globalStyle";
+import failed from "../components/failed";
 
 function ContactForm() {
     const [fullName, setFullName] = useState("");
@@ -28,6 +29,7 @@ function ContactForm() {
     const [findRequestSubmitted, setFindRequestSubmitted] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [foundGuest, setFoundGuest] = useState(false);
+    const [error, setError] = useState(false);
 
     useEffect(() => {}, []);
 
@@ -44,16 +46,20 @@ function ContactForm() {
         }
     };
     const handleFind = (e) => {
-        isNameOnGuestList(fullName).then((resGuest) => {
-            if (resGuest !== null) {
-                setFoundGuest(true);
-                setFullName(resGuest.fullName);
-                setPlusName(resGuest.plusOneName);
-                setAttending(resGuest.attending ? "Yes" : "No");
-                setSubmitted(true);
-            }
-            setFindRequestSubmitted(true);
-        });
+        isNameOnGuestList(fullName)
+            .then((resGuest) => {
+                if (resGuest !== null) {
+                    setFoundGuest(true);
+                    setFullName(resGuest.fullName);
+                    setPlusName(resGuest.plusOneName);
+                    setAttending(resGuest.attending ? "Yes" : "No");
+                    setSubmitted(true);
+                }
+                setFindRequestSubmitted(true);
+            })
+            .catch(() => {
+                setError(true);
+            });
         e.preventDefault();
     };
 
@@ -65,7 +71,7 @@ function ContactForm() {
             message
         );
 
-        // check if name exists in colletion
+        // check if name exists in colletion and add to collection
 
         isNameOnGuestList(fullName).then((resGuest) => {
             if (resGuest !== null) {
@@ -75,40 +81,18 @@ function ContactForm() {
                 setAttending(resGuest.attending ? "Yes" : "No");
                 setSubmitted(true);
             } else {
-                addToGuestList(guestEntry).then((res) => {
-                    setSubmitted(true);
-                });
+                addToGuestList(guestEntry)
+                    .then((res) => {
+                        setSubmitted(true);
+                    })
+                    .catch(() => {
+                        setError(true);
+                    });
             }
         });
 
-        // add to collection
-
-        // addToDB(guestEntry).then((res) => {
-        //     // check res
-        //     setSubmitted(true);
-        // });
-
         e.preventDefault();
     };
-
-    const errorInForm = (
-        <div>
-            <Spacer y={2} />
-            <Text>Woops there's something wrong.</Text>
-            <Spacer y={2} />
-            <Button
-                shadow
-                color="gradient"
-                auto
-                onClick={() => {
-                    window.location.reload();
-                }}
-            >
-                Click me to retry!
-            </Button>
-            <Spacer y={2} />
-        </div>
-    );
 
     const guestForm = (title) => (
         <div>
@@ -269,6 +253,10 @@ function ContactForm() {
             </Container>
         </form>
     );
+
+    if (error) {
+        return failed("RSVP");
+    }
 
     return (
         <Wrapper title="RSVP">

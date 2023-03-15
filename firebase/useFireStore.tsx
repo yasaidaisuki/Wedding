@@ -77,10 +77,18 @@ export async function isNameOnGuestList(name: string) {
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.size > 0) {
-        const resGuest = formEntryConverter.fromFirestore(
-            querySnapshot.docs[0]
-        );
-        return resGuest;
+        return formEntryConverter.fromFirestore(querySnapshot.docs[0]);
+    }
+
+    // check plus one name as well
+    const q2 = query(
+        collection(firestore, "form"),
+        where("PlusOneName", "==", name.toUpperCase())
+    );
+
+    const querySnapshot2 = await getDocs(q2);
+    if (querySnapshot2.size > 0) {
+        return formEntryConverter.fromFirestore(querySnapshot2.docs[0]);
     }
     return null;
 }
