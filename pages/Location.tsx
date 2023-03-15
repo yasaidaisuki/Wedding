@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import { Container, Card, Text } from "@nextui-org/react";
 import Wrapper from "../components/page-wrapper";
+import { textGradientCSS } from "../styles/globalStyle";
 
 const containerStyle = {
     width: "auto",
@@ -39,14 +40,7 @@ const Location = ({ nonce }: Props) => {
     return isLoaded ? (
         <Wrapper title="Location">
             <Container>
-                <Text
-                    h1
-                    size={30}
-                    css={{
-                        textGradient: "45deg, $blue600 -20%, $pink600 80%",
-                    }}
-                    weight="bold"
-                >
+                <Text h1 size={30} css={textGradientCSS} weight="bold">
                     Pradise Banquet & Convention Centre:
                     <br />
                     7601 Jane St, Concord, ON L4K 1X2

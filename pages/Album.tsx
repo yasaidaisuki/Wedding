@@ -3,11 +3,12 @@ import { Card, Grid, Pagination, Loading, Text } from "@nextui-org/react";
 import Wrapper from "../components/page-wrapper";
 import { listAll, getDownloadURL } from "firebase/storage";
 import { imageRef } from "../firebase/config";
+import { textGradientCSS } from "../styles/globalStyle";
 
 const Album = () => {
     const PAGE_CHUNK_SIZE = 10;
     const TOTAL_PAGE = 6;
-    const DELAY_TIME = 1000;
+    const DELAY_TIME = 300;
 
     const [loading, setLoading] = useState(true);
     const [pageNum, setPageNum] = useState(1);
@@ -59,7 +60,7 @@ const Album = () => {
         const resetTimeout = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve("timeout");
-            }, 300);
+            }, DELAY_TIME);
         });
         resetTimeout.then(() => setLoading(false));
         return (
@@ -70,14 +71,7 @@ const Album = () => {
     } else {
         return (
             <Wrapper title="Album">
-                <Text
-                    h1
-                    size={30}
-                    css={{
-                        textGradient: "45deg, $blue600 -20%, $pink600 80%",
-                    }}
-                    weight="bold"
-                >
+                <Text h1 size={30} css={textGradientCSS} weight="bold">
                     Our Journeys
                 </Text>
                 <Text>

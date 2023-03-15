@@ -22,8 +22,11 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Initialize Cloud Firestore and get a reference to the service
+const firestore = getFirestore(app);
+
 const storage = getStorage(app);
 // Create a reference under which you want to list
 const imageRef = ref(storage, "image");
 
-export { storage, imageRef };
+export { firestore, imageRef };
