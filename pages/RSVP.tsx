@@ -148,7 +148,7 @@ function ContactForm() {
                         name="name"
                         clearable
                         label="What's Your Full Name?"
-                        placeholder="full ame"
+                        placeholder="full name"
                         initialValue={fullName}
                         required={true}
                         onChange={(e) => setFullName(e.target.value)}
@@ -232,7 +232,7 @@ function ContactForm() {
                         name="name"
                         clearable
                         label="What's Your Full Name?"
-                        placeholder="full ame"
+                        placeholder="full name"
                         required
                         onChange={(e) => setFullName(e.target.value)}
                     />
